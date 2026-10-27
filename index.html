@@ -1,0 +1,1633 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="E-Portfolio Pendidikan Profesi Guru Hafadzatun Adzmi, S.Pd."
+    />
+    <title>E-Portfolio PPG | Hafadzatun Adzmi, S.Pd.</title>
+    <style>
+      /* =========================================================
+       E-PORTFOLIO PPG — HAFADZATUN ADZMI, S.Pd.
+       Edit warna pada :root dan konten pada bagian HTML.
+       ========================================================= */
+      :root {
+        --rose: #eb9eb6;
+        --rose-dark: #f274a0;
+        --rose-light: #f7e6ec;
+        --blush: #fff7f9;
+        --cream: #fffdfb;
+        --gold: #c6a36a;
+        --ink: #352a30;
+        --muted: #796b72;
+        --white: #ffffff;
+        --border: #ead8df;
+        --shadow: 0 14px 40px rgba(112, 56, 77, 0.1);
+        --radius: 22px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--ink);
+        background: var(--cream);
+        line-height: 1.7;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      button {
+        font: inherit;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(255, 253, 251, 0.94);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-wrap {
+        max-width: 1200px;
+        margin: auto;
+        padding: 12px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 220px;
+      }
+      .brand-mark {
+        width: 44px;
+        height: 44px;
+        border-radius: 15px;
+        display: grid;
+        place-items: center;
+        color: var(--white);
+        background: linear-gradient(135deg, var(--rose), var(--rose-dark));
+        font-size: 21px;
+        box-shadow: 0 6px 16px rgba(184, 95, 123, 0.25);
+      }
+      .brand strong {
+        display: block;
+        font-size: 14px;
+        line-height: 1.3;
+      }
+      .brand small {
+        display: block;
+        color: var(--muted);
+        font-size: 11px;
+        letter-spacing: 0.06em;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .nav-links a {
+        padding: 9px 12px;
+        border-radius: 999px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 650;
+        transition: 0.2s;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        background: var(--rose-light);
+        color: var(--rose-dark);
+      }
+      .menu-toggle {
+        display: none;
+        border: 1px solid var(--border);
+        background: var(--white);
+        color: var(--rose-dark);
+        padding: 8px 12px;
+        border-radius: 12px;
+        cursor: pointer;
+      }
+
+      .hero {
+        min-height: 570px;
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        color: var(--white);
+        background:
+          linear-gradient(105deg, #eb9eb6, #f274a0),
+          url("assets/foto-sekolah.jpg") center/cover no-repeat,
+          linear-gradient(135deg, #754459, #c17e96);
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background:
+          radial-gradient(
+            circle at 85% 15%,
+            rgba(233, 190, 205, 0.3),
+            transparent 28%
+          ),
+          linear-gradient(0deg, rgba(37, 20, 29, 0.28), transparent 65%);
+      }
+      .hero-inner {
+        width: 100%;
+        max-width: 1200px;
+        margin: auto;
+        padding: 70px 24px;
+        display: grid;
+        grid-template-columns: 1.35fr 0.65fr;
+        align-items: center;
+        gap: 55px;
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 7px 13px;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .hero h1 {
+        font-size: clamp(34px, 5vw, 59px);
+        line-height: 1.12;
+        margin: 20px 0 16px;
+        letter-spacing: -0.035em;
+      }
+      .hero h1 span {
+        color: #96002f;
+      }
+      .hero p {
+        max-width: 660px;
+        color: rgba(44, 1, 1, 0.88);
+        font-size: 16px;
+        margin: 0 0 25px;
+      }
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .btn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 9px;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        padding: 12px 19px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 13px;
+        transition: 0.2s;
+      }
+      .btn-primary {
+        background: var(--white);
+        color: var(--rose-dark);
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px #2b172055;
+      }
+      .btn-outline {
+        border-color: rgba(255, 255, 255, 0.55);
+        color: var(--white);
+        background: transparent;
+      }
+      .btn-outline:hover {
+        background: rgba(255, 255, 255, 0.12);
+      }
+      .hero-note {
+        font-size: 12px !important;
+        margin-top: 20px !important;
+        opacity: 0.78;
+      }
+
+      /* Bingkai foto berbentuk hati: ganti src dengan foto pribadi. */
+      .heart-frame {
+        width: min(300px, 100%);
+        aspect-ratio: 1;
+        margin: auto;
+        position: relative;
+        filter: drop-shadow(0 18px 25px rgba(0, 0, 0, 0.22));
+      }
+      .heart-frame::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background: linear-gradient(135deg, #f4d6e0, var(--gold));
+        clip-path: path(
+          "M 150 275 C 125 250 18 177 18 94 C 18 25 104 8 150 72 C 196 8 282 25 282 94 C 282 177 175 250 150 275 Z"
+        );
+      }
+      .heart-photo {
+        position: absolute;
+        inset: 7px;
+        z-index: 1;
+        overflow: hidden;
+        clip-path: path(
+          "M 143 263 C 120 239 18 171 18 93 C 18 29 99 12 143 72 C 187 12 268 29 268 93 C 268 171 166 239 143 263 Z"
+        );
+        background: linear-gradient(135deg, #f8e8ed, #dba6b8);
+      }
+      .heart-photo img {
+        width: 97%;
+        height: 160%;
+        object-fit: cover;
+        object-position: center;
+        justify-items: auto;
+      }
+      .photo-placeholder {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        padding: 100px 200px;
+        color: var(--rose-dark);
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .photo-placeholder span {
+        display: block;
+        font-size: 43px;
+        margin-bottom: 5px;
+      }
+
+      .institution-strip {
+        background: var(--white);
+        border-bottom: 1px solid var(--border);
+      }
+      .institution-inner {
+        max-width: 1050px;
+        margin: auto;
+        padding: 20px 22px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: clamp(28px, 7vw, 90px);
+      }
+      .institution {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 650;
+      }
+      .logo-slot {
+        width: 56px;
+        height: 56px;
+        flex: 0 0 56px;
+        border: 1px dashed #d7b5c2;
+        border-radius: 50%;
+        background: var(--blush);
+        display: grid;
+        place-items: center;
+        text-align: center;
+        padding: 5px;
+        color: var(--rose-dark);
+        font-size: 9px;
+        overflow: hidden;
+      }
+      .logo-slot img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      .institution small {
+        display: block;
+        font-weight: 400;
+        color: #9b8991;
+      }
+
+      .section {
+        padding: 82px 24px;
+      }
+      .section.soft {
+        background: var(--blush);
+      }
+      .container {
+        max-width: 1120px;
+        margin: auto;
+      }
+      .section-heading {
+        max-width: 720px;
+        margin: 0 auto 42px;
+        text-align: center;
+      }
+      .kicker {
+        color: var(--rose);
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+      }
+      h2 {
+        margin: 8px 0 12px;
+        font-size: clamp(27px, 3vw, 38px);
+        line-height: 1.2;
+        letter-spacing: -0.025em;
+      }
+      .section-heading p {
+        margin: 0;
+        color: var(--muted);
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 28px;
+        align-items: stretch;
+      }
+      .profile-card,
+      .content-card,
+      .artifact-card,
+      .reflection-card,
+      .semester-card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+      .profile-card {
+        padding: 30px;
+        background: linear-gradient(150deg, #fff, #fff5f8);
+      }
+      .profile-avatar {
+        width: 100px;
+        height: 100px;
+        display: grid;
+        place-items: center;
+        border-radius: 24px;
+        background: var(--rose-light);
+        color: var(--rose-dark);
+        font-size: 30px;
+        margin-bottom: 18px;
+      }
+      .profile-card h3 {
+        margin: 0 0 4px;
+        font-size: 22px;
+      }
+      .profile-card .degree {
+        color: var(--rose);
+        font-weight: 700;
+        font-size: 13px;
+      }
+      .profile-details {
+        margin-top: 22px;
+        display: grid;
+        gap: 12px;
+      }
+      .detail {
+        display: flex;
+        gap: 12px;
+        font-size: 13px;
+      }
+      .detail b {
+        min-width: 92px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+      .content-card {
+        padding: 30px;
+      }
+      .content-card h3 {
+        margin: 0 0 12px;
+        font-size: 21px;
+      }
+      .quote {
+        border-left: 3px solid var(--gold);
+        margin: 18px 0;
+        padding: 15px 18px;
+        background: var(--blush);
+        color: var(--rose-dark);
+        font-family: Georgia, serif;
+        font-size: 19px;
+        font-style: italic;
+        border-radius: 0 14px 14px 0;
+      }
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 20px;
+      }
+      .pill {
+        padding: 7px 11px;
+        background: var(--rose-light);
+        color: var(--rose-dark);
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      .artifact-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .artifact-card {
+        overflow: hidden;
+        box-shadow: none;
+        transition: 0.22s;
+      }
+      .artifact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow);
+      }
+      .artifact-visual {
+        height: 155px;
+        display: grid;
+        place-items: center;
+        color: var(--rose-dark);
+        background: linear-gradient(135deg, #f8e8ee, #f1d6df);
+        font-size: 42px;
+      }
+      .artifact-body {
+        padding: 23px;
+      }
+      .artifact-body .tag {
+        color: var(--rose);
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.13em;
+        font-weight: 800;
+      }
+      .artifact-body h3 {
+        margin: 7px 0;
+        font-size: 18px;
+      }
+      .artifact-body p {
+        color: var(--muted);
+        font-size: 13px;
+        margin: 0 0 17px;
+      }
+      .text-link {
+        color: var(--rose-dark);
+        font-weight: 800;
+        font-size: 12px;
+      }
+      .text-link:hover {
+        text-decoration: underline;
+      }
+      .notice {
+        margin-top: 25px;
+        padding: 16px 19px;
+        background: #fffaf0;
+        border: 1px solid #efdfbd;
+        border-radius: 14px;
+        color: #76613e;
+        font-size: 13px;
+      }
+
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+      .process-item {
+        padding: 23px 20px;
+        border: 1px solid var(--border);
+        background: var(--white);
+        border-radius: 18px;
+      }
+      .process-number {
+        width: 35px;
+        height: 35px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: var(--rose-light);
+        color: var(--rose-dark);
+        font-weight: 800;
+      }
+      .process-item h3 {
+        font-size: 15px;
+        margin: 15px 0 7px;
+      }
+      .process-item p {
+        color: var(--muted);
+        font-size: 12px;
+        margin: 0;
+      }
+
+      .reflection-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .reflection-card {
+        padding: 25px;
+        box-shadow: none;
+      }
+      .reflection-card .icon {
+        font-size: 25px;
+      }
+      .reflection-card h3 {
+        margin: 12px 0 7px;
+        font-size: 17px;
+      }
+      .reflection-card p {
+        color: var(--muted);
+        font-size: 13px;
+        margin: 0;
+      }
+
+      .semester-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+      }
+      .semester-card {
+        padding: 30px;
+        position: relative;
+        overflow: hidden;
+      }
+      .semester-card::after {
+        content: "";
+        position: absolute;
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        background: var(--rose-light);
+        right: -40px;
+        top: -45px;
+        opacity: 0.8;
+      }
+      .semester-card h3 {
+        margin: 8px 0;
+        font-size: 24px;
+        position: relative;
+        z-index: 1;
+      }
+      .semester-card p {
+        color: var(--muted);
+        font-size: 13px;
+        position: relative;
+        z-index: 1;
+      }
+      .semester-card .btn {
+        margin-top: 10px;
+        background: var(--rose-dark);
+        color: var(--white);
+        position: relative;
+        z-index: 1;
+      }
+      .semester-card .btn:hover {
+        background: var(--rose);
+      }
+
+      .contact-box {
+        border-radius: 28px;
+        padding: 42px;
+        text-align: center;
+        color: var(--white);
+        background: linear-gradient(120deg, #88425a, #b86c86);
+        box-shadow: var(--shadow);
+      }
+      .contact-box p {
+        color: #f8eaf0;
+        max-width: 620px;
+        margin: 0 auto 20px;
+      }
+      .contact-box .btn {
+        background: var(--white);
+        color: var(--rose-dark);
+      }
+
+      footer {
+        padding: 25px 24px;
+        background: #352a30;
+        color: #d9cbd1;
+        font-size: 12px;
+      }
+      .footer-inner {
+        max-width: 1120px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+      .back-top {
+        color: #f2c7d6;
+      }
+
+      /* Halaman UTS/UAS menggunakan panel terpisah, bukan isi utama beranda. */
+      .subpage {
+        display: none;
+        min-height: 75vh;
+        padding: 58px 24px 80px;
+        background: var(--blush);
+      }
+      .subpage.active {
+        display: block;
+      }
+      #homePage.hidden {
+        display: none;
+      }
+      .subpage-head {
+        max-width: 950px;
+        margin: 0 auto 30px;
+      }
+      .breadcrumb {
+        color: var(--rose);
+        font-weight: 750;
+        font-size: 12px;
+      }
+      .subpage-head h1 {
+        font-size: clamp(30px, 4vw, 44px);
+        margin: 10px 0;
+      }
+      .subpage-head p {
+        color: var(--muted);
+        max-width: 760px;
+      }
+      .upload-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        max-width: 950px;
+        margin: auto;
+      }
+      .upload-card {
+        padding: 25px;
+        border: 1px solid var(--border);
+        background: var(--white);
+        border-radius: 20px;
+      }
+      .upload-card h3 {
+        margin-top: 0;
+      }
+      .upload-card p,
+      .upload-card li {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .file-slot {
+        display: block;
+        border: 1px dashed #d3a9b9;
+        border-radius: 14px;
+        padding: 18px;
+        background: var(--blush);
+        color: var(--rose-dark);
+        font-size: 13px;
+        margin: 14px 0;
+      }
+      .file-slot input {
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+        font-size: 12px;
+      }
+      .file-preview {
+        margin-top: 12px;
+        font-size: 12px;
+        color: var(--muted);
+        overflow-wrap: anywhere;
+      }
+      .subpage-actions {
+        max-width: 950px;
+        margin: 25px auto 0;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .btn-dark {
+        background: var(--rose-dark);
+        color: var(--white);
+      }
+      .btn-light {
+        border-color: var(--border);
+        background: var(--white);
+        color: var(--rose-dark);
+      }
+
+      @media (max-width: 900px) {
+        .menu-toggle {
+          display: inline-block;
+        }
+        .nav-wrap {
+          flex-wrap: wrap;
+        }
+        .nav-links {
+          display: none;
+          width: 100%;
+          flex-direction: column;
+          align-items: stretch;
+          padding-bottom: 8px;
+        }
+        .nav-links.open {
+          display: flex;
+        }
+        .nav-links a {
+          border-radius: 12px;
+        }
+        .hero-inner {
+          grid-template-columns: 1fr;
+          text-align: center;
+          gap: 38px;
+        }
+        .hero p {
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .hero-actions {
+          justify-content: center;
+        }
+        .hero-note {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        .heart-frame {
+          width: 500px;
+        }
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+        .artifact-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .process-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .reflection-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 600px) {
+        .nav-wrap {
+          padding: 10px 16px;
+        }
+        .brand {
+          min-width: 0;
+        }
+        .brand strong {
+          font-size: 12px;
+        }
+        .hero {
+          min-height: auto;
+        }
+        .hero-inner {
+          padding: 55px 20px;
+        }
+        .hero h1 {
+          font-size: 37px;
+        }
+        .section {
+          padding: 60px 18px;
+        }
+        .institution-inner {
+          gap: 14px;
+          padding: 18px 12px;
+        }
+        .institution {
+          flex-direction: column;
+          text-align: center;
+          gap: 6px;
+          font-size: 10px;
+          flex: 1;
+        }
+        .logo-slot {
+          width: 45px;
+          height: 45px;
+          flex-basis: 45px;
+        }
+        .artifact-grid,
+        .process-grid,
+        .semester-grid,
+        .upload-grid {
+          grid-template-columns: 1fr;
+        }
+        .contact-box {
+          padding: 30px 20px;
+        }
+        .detail {
+          flex-direction: column;
+          gap: 0;
+        }
+        .profile-card,
+        .content-card {
+          padding: 23px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="nav-wrap">
+        <a
+          class="brand"
+          href="#"
+          onclick="
+            showPage('home');
+            return false;
+          "
+          aria-label="Kembali ke beranda"
+        >
+          <div class="brand-mark">♡</div>
+          <div>
+            <strong>E-PORTFOLIO PPG</strong
+            ><small>PRAKTIK PENGALAMAN LAPANGAN SMAN 2 MATARAM</small>
+          </div>
+        </a>
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-label="Buka navigasi"
+          aria-expanded="false"
+        >
+          ☰ Menu
+        </button>
+        <nav class="nav-links" id="navLinks" aria-label="Navigasi utama">
+          <a href="#beranda" data-home-link onclick="showPage('home')"
+            >Beranda</a
+          >
+          <a href="#profil" data-home-link onclick="showPage('home')">Profil</a>
+          <a href="#artefak" data-home-link onclick="showPage('home')"
+            >Artefak</a
+          >
+          <a href="#analisis" data-home-link onclick="showPage('home')"
+            >Analisis & Refleksi</a
+          >
+          <a
+            href="#"
+            onclick="
+              showPage('uts');
+              return false;
+            "
+            >UTS</a
+          >
+          <a
+            href="#"
+            onclick="
+              showPage('uas');
+              return false;
+            "
+            >UAS</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <!-- ======================= BERANDA ======================= -->
+    <main id="homePage">
+      <section class="hero" id="beranda">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <span class="eyebrow">✦ Pendidikan Profesi Guru</span>
+            <h1>Belajar, Bertumbuh,<br /><span>Menginspirasi.</span></h1>
+            <h4>
+              Ruang perjalanan profesional saya dalam merancang pembelajaran,
+              melaksanakan praktik mengajar, merefleksikan pengalaman, dan terus
+              bertumbuh sebagai calon guru yang berkarakter.
+            </h4>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#artefak"
+                >Jelajahi Portofolio <span>↗</span></a
+              >
+              <a class="btn btn-outline" href="#profil">Kenali Saya</a>
+            </div>
+            <h4>
+              Hafadzatun Adzmi, S.Pd. · Program Studi Pendidikan Profesi Guru
+            </h4>
+          </div>
+          <div
+            class="heart-frame"
+            aria-label="Tempat foto pribadi berbentuk hati"
+          >
+            <div class="heart-photo">
+              <!-- GANTI assets/foto-profil.jpg dengan lokasi foto pribadi Anda -->
+              <img
+                src="assets/profile.jpeg"
+                alt="Foto Hafadzatun Adzmi"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'grid';
+                "
+              />
+              <div class="photo-placeholder" style="display: none">
+                <div>
+                  <span>♡</span>Letakkan foto pribadi di sini<br /><small
+                    >assets/foto-profil.jpg</small
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="institution-strip" aria-label="Identitas institusi">
+        <div class="institution-inner">
+          <div class="institution">
+            <div class="logo-slot">
+              <img
+                src="assets/ummat.png"
+                alt="Logo kampus"
+                onerror="
+                  this.style.display = 'none';
+                  this.parentElement.textContent = 'LOGO KAMPUS';
+                "
+              />
+            </div>
+            <div>
+              Universitas / Kampus<small>Ganti dengan nama kampus</small>
+            </div>
+          </div>
+          <div class="institution">
+            <div class="logo-slot">
+              <img
+                src="assets/smanda.png"
+                alt="Logo sekolah"
+                onerror="
+                  this.style.display = 'none';
+                  this.parentElement.textContent = 'LOGO SEKOLAH';
+                "
+              />
+            </div>
+            <div>Sekolah Praktik<small>Ganti dengan nama sekolah</small></div>
+          </div>
+          <div class="institution">
+            <div class="logo-slot">
+              <img
+                src="assets/ppgcalonguru.jpg"
+                alt="Logo PPG"
+                onerror="
+                  this.style.display = 'none';
+                  this.parentElement.textContent = 'LOGO PPG';
+                "
+              />
+            </div>
+            <div>Program PPG<small>Pendidikan Profesi Guru</small></div>
+          </div>
+        </div>
+      </div>
+
+      <section class="section" id="profil">
+        <div class="container">
+          <div class="section-heading">
+            <span class="kicker">Tentang Saya</span>
+            <h2>Perjalanan Menjadi Pendidik</h2>
+          </div>
+          <div class="about-grid">
+            <article class="profile-card">
+              <div class="profile-avatar">♡</div>
+              <h3>Hafadzatun Adzmi, S.Pd.</h3>
+              <div class="degree">Calon Guru Profesional</div>
+              <div class="profile-details">
+                <div class="detail"><b>NIM</b><span>20250120909010</span></div>
+                <div class="detail">
+                  <b>Program</b><span>Pendidikan Profesi Guru</span>
+                </div>
+                <div class="detail">
+                  <b>Fokus</b
+                  ><span
+                    >Praktik mengajar, refleksi, dan inovasi pembelajaran</span
+                  >
+                </div>
+                <div class="detail">
+                  <span>Universitas Muhammadiyah Mataram</span>
+                </div>
+              </div>
+            </article>
+            <article class="content-card">
+              <span class="kicker">Motto Profesional</span>
+              <div class="quote">
+                “Mendidik dengan hati, menginspirasi dengan keteladanan, dan
+                bertumbuh dengan ilmu untuk membentuk generasi yang
+                berkarakter.”
+              </div>
+              <h3>Filosofi Mengajar Saya</h3>
+              <p>
+                Saya meyakini bahwa setiap peserta didik memiliki potensi,
+                kebutuhan, dan cara belajar yang berbeda. Karena itu,
+                pembelajaran perlu dirancang secara terarah, inklusif, bermakna,
+                dan memberi ruang bagi peserta didik untuk aktif membangun
+                pemahamannya.
+              </p>
+              <p>
+                Bagi saya, menjadi guru bukan hanya menyampaikan materi, tetapi
+                juga menjadi teladan, pendamping, dan pembelajar sepanjang
+                hayat. Refleksi dan keterbukaan terhadap masukan menjadi bagian
+                penting untuk memperbaiki praktik pembelajaran secara
+                berkelanjutan.
+              </p>
+              <div class="pill-row">
+                <span class="pill">Berpusat pada Peserta Didik</span
+                ><span class="pill">Reflektif</span
+                ><span class="pill">Inklusif</span
+                ><span class="pill">Berkelanjutan</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section soft" id="artefak">
+        <div class="container">
+          <div class="section-heading">
+            <span class="kicker">Bukti Praktik</span>
+            <h2>Artefak Pembelajaran</h2>
+            <p>
+              Kumpulan dokumen dan bukti autentik yang menunjukkan proses
+              perencanaan, pelaksanaan, asesmen, dan refleksi pembelajaran.
+            </p>
+          </div>
+          <div class="artifact-grid">
+            <article class="artifact-card">
+              <div class="artifact-visual">▤</div>
+              <div class="artifact-body">
+                <span class="tag">Artefak 01</span>
+                <h3>Modul Ajar / Rancangan Pembelajaran</h3>
+                <p>
+                  Dokumen perencanaan pembelajaran terpilih yang memuat tujuan,
+                  langkah kegiatan, asesmen, dan penyesuaian dengan kebutuhan
+                  peserta didik.
+                </p>
+                <ul>
+                  <li>
+                    <a
+                      class="text-link"
+                      href="assets/siklus 3.pdf"
+                      target="_blank"
+                      rel="noopener"
+                      >Buka dokumen ↗</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="text-link"
+                      href="assets/siklus 4.pdf"
+                      target="_blank"
+                      rel="noopener"
+                      >Buka dokumen ↗</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </article>
+            <article class="artifact-card">
+              <div class="artifact-visual">▷</div>
+              <div class="artifact-body">
+                <span class="tag">Artefak 02</span>
+                <h3>Video Praktik Mengajar</h3>
+                <p>
+                  Dokumentasi pelaksanaan pembelajaran yang memperlihatkan
+                  strategi mengajar, interaksi kelas, penggunaan media, dan
+                  keterlibatan peserta didik.
+                </p>
+                <ul>
+                  <li>
+                    <a
+                      class="text-link"
+                      href="https://youtu.be/cXQ30XJagh8?si=WwdK3HTFKnAXffN6"
+                      target="_blank"
+                      rel="noopener"
+                      >Video Pembelajaran Siklus 1 ↗</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="text-link"
+                      href="https://youtu.be/TQSLcYb5wSQ?si=zDJJ9yM-CJpGvNoR"
+                      target="_blank"
+                      rel="noopener"
+                      >Video Pembelajaran Siklus 4 ↗</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </article>
+            <article class="artifact-card">
+              <div class="artifact-visual">✧</div>
+              <div class="artifact-body">
+                <span class="tag">Artefak 03</span>
+                <h3>Media Pembelajaran</h3>
+                <p>
+                  Media yang digunakan untuk membantu peserta didik memahami
+                  konsep, berpartisipasi, dan menghubungkan materi dengan
+                  situasi nyata.
+                </p>
+                <ul>
+                  <li>
+                    <a
+                      class="text-link"
+                      href="assets/lkpd-C.jpeg"
+                      target="_blank"
+                      rel="noopener"
+                      >Buka media ↗</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="text-link"
+                      href="assets/picker.png"
+                      target="_blank"
+                      rel="noopener"
+                      >Buka media ↗</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="text-link"
+                      href="assets/wayground.png"
+                      target="_blank"
+                      rel="noopener"
+                      >Buka media ↗</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="text-link"
+                      href="assets/qr.jpeg"
+                      target="_blank"
+                      rel="noopener"
+                      >Buka media ↗</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </article>
+            <article class="artifact-card">
+              <div class="artifact-visual">☷</div>
+              <div class="artifact-body">
+                <span class="tag">Artefak 04</span>
+                <h3>Contoh Hasil Kerja Siswa</h3>
+                <p>
+                  Contoh hasil pekerjaan peserta didik sebagai bukti proses
+                  belajar, pemahaman konsep dan pencapaian tujuan pembelajaran.
+                </p>
+                <ul>
+                  <li>
+                    <a
+                      class="text-link"
+                      href="assets/poster1.jpeg"
+                      target="_blank"
+                      rel="noopener"
+                      >Buka dokumen ↗</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="text-link"
+                      href="assets/poster2.jpeg"
+                      target="_blank"
+                      rel="noopener"
+                      >Buka dokumen ↗</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="text-link"
+                      href="assets/rafael.pdf"
+                      target="_blank"
+                      rel="noopener"
+                      >Buka dokumen ↗</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </article>
+            <article class="artifact-card">
+              <div class="artifact-visual">◎</div>
+              <div class="artifact-body">
+                <span class="tag">Artefak 05</span>
+                <h3>Instrumen dan Hasil Asesmen</h3>
+                <p>
+                  Instrumen asesmen diagnostik, formatif, atau sumatif beserta
+                  ringkasan hasil untuk memetakan kebutuhan dan merencanakan
+                  tindak lanjut.
+                </p>
+                <ul>
+                  <li>
+                    <a
+                      class="text-link"
+                      href="assets/asesmen kognitif.xlsx"
+                      target="_blank"
+                      rel="noopener"
+                      >Buka dokumen ↗</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="text-link"
+                      href="assets/bab1.pdf"
+                      target="_blank"
+                      rel="noopener"
+                      >Buka dokumen ↗</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="text-link"
+                      href="assets/bab2.pdf"
+                      target="_blank"
+                      rel="noopener"
+                      >Buka dokumen ↗</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="text-link"
+                      href="assets/Instrumen.pdf"
+                      target="_blank"
+                      rel="noopener"
+                      >Buka dokumen ↗</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </article>
+            <article class="artifact-card">
+              <div class="artifact-visual">♡</div>
+              <div class="artifact-body">
+                <span class="tag">Artefak 06</span>
+                <h3>Umpan Balik dan Refleksi</h3>
+                <p>
+                  Catatan refleksi, masukan guru pamong atau dosen pembimbing,
+                  serta rencana perbaikan berdasarkan bukti pelaksanaan
+                  pembelajaran.
+                </p>
+                <a
+                  class="text-link"
+                  href="assets/rtl.pdf"
+                  target="_blank"
+                  rel="noopener"
+                  >Buka dokumen ↗</a
+                >
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="analisis">
+        <div class="container">
+          <div class="section-heading">
+            <span class="kicker">Analisis dan Pengembangan</span>
+            <h2>Dari Bukti Menjadi Perbaikan</h2>
+            <p>
+              Setiap artefak sebaiknya dilengkapi uraian konteks, tujuan,
+              kelebihan, keterbatasan, keterkaitan dengan teori perkuliahan, dan
+              tindak lanjut.
+            </p>
+          </div>
+          <div class="process-grid">
+            <article class="process-item">
+              <div class="process-number">01</div>
+              <h3>Konteks dan Tujuan</h3>
+              <p>
+                Jelaskan situasi kelas, kebutuhan peserta didik, tujuan artefak,
+                serta alasan pemilihan strategi atau media.
+              </p>
+            </article>
+            <article class="process-item">
+              <div class="process-number">02</div>
+              <h3>Kekuatan Produk</h3>
+              <p>
+                Uraikan bagian yang efektif dan dukung analisis dengan bukti
+                dari proses atau hasil pembelajaran.
+              </p>
+            </article>
+            <article class="process-item">
+              <div class="process-number">03</div>
+              <h3>Keterbatasan</h3>
+              <p>
+                Identifikasi kendala atau bagian yang belum optimal secara
+                jujur, spesifik, dan berdasarkan bukti.
+              </p>
+            </article>
+            <article class="process-item">
+              <div class="process-number">04</div>
+              <h3>Tindak Lanjut</h3>
+              <p>
+                Tetapkan perubahan yang realistis, cara melaksanakannya, dan
+                indikator untuk menilai perbaikannya.
+              </p>
+            </article>
+          </div>
+          <div style="height: 24px"></div>
+          <div class="reflection-grid">
+            <article class="reflection-card">
+              <div class="icon">✿</div>
+              <h3>Model Guru yang Saya Tuju</h3>
+              <p>
+                Saya ingin menjadi guru yang kompeten, reflektif, adil, adaptif
+                terhadap kebutuhan peserta didik, serta mampu membangun
+                lingkungan belajar yang aman dan menghargai keberagaman.
+              </p>
+            </article>
+            <article class="reflection-card">
+              <div class="icon">♡</div>
+              <h3>Kekuatan dan Area Pengembangan</h3>
+              <p>
+                Isi bagian ini dengan bukti nyata dari praktik mengajar: hal
+                yang sudah berjalan baik, tantangan yang ditemukan, masukan
+                pembimbing, dan kompetensi yang masih perlu ditingkatkan.
+              </p>
+            </article>
+            <article class="reflection-card">
+              <div class="icon">↗</div>
+              <h3>Rencana Tindak Lanjut</h3>
+              <p>
+                Rencanakan perbaikan konkret, misalnya memperjelas instruksi,
+                mengelola waktu, memvariasikan asesmen, dan memantau
+                keterlibatan peserta didik secara lebih sistematis.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section soft" id="semester">
+        <div class="container">
+          <div class="section-heading">
+            <span class="kicker">Dokumentasi Perkuliahan</span>
+            <h2>Ruang UTS dan UAS</h2>
+            <p>
+              Halaman UTS dan UAS dipisahkan dari beranda agar bukti tugas
+              setiap periode tersusun rapi dan mudah ditinjau.
+            </p>
+          </div>
+          <div class="semester-grid">
+            <article class="semester-card">
+              <span class="kicker">Evaluasi Tengah Semester</span>
+              <h3>E-Portfolio UTS</h3>
+              <p>
+                Ruang untuk rancangan pembelajaran terbaik dari praktik mengajar
+                mandiri Siklus 1, video pelaksanaan, analisis artefak, dan
+                refleksi.
+              </p>
+              <a
+                class="btn"
+                href="#"
+                onclick="
+                  showPage('uts');
+                  return false;
+                "
+                >Buka Halaman UTS ↗</a
+              >
+            </article>
+            <article class="semester-card">
+              <span class="kicker">Evaluasi Akhir Semester</span>
+              <h3>E-Portfolio UAS</h3>
+              <p>
+                Ruang untuk rancangan pembelajaran terpilih dari praktik
+                mengajar mandiri Siklus 2–4, video pelaksanaan, analisis, dan
+                tindak lanjut.
+              </p>
+              <a
+                class="btn"
+                href="#"
+                onclick="
+                  showPage('uas');
+                  return false;
+                "
+                >Buka Halaman UAS ↗</a
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ======================= HALAMAN UTS TERPISAH ======================= -->
+    <section class="subpage" id="utsPage">
+      <div class="subpage-head">
+        <div class="breadcrumb">
+          <a
+            href="#"
+            onclick="
+              showPage('home');
+              return false;
+            "
+            >Beranda</a
+          >
+          / UTS
+        </div>
+        <h1>E-Portfolio UTS</h1>
+        <p>
+          Dokumentasi praktik mengajar mandiri Siklus 1. Halaman ini disiapkan
+          untuk menampilkan rancangan pembelajaran lengkap yang dipilih, video
+          pelaksanaan, serta analisis dan refleksi yang menyertainya.
+        </p>
+      </div>
+      <div class="upload-grid">
+        <article class="upload-card">
+          <h3>01 · Rancangan Pembelajaran</h3>
+          <a
+            href="assets/siklus 3.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-dark"
+          >
+            Buka Dokumen ↗
+          </a>
+          <h3 style="margin-top: 25px">02 · Video Praktik Mengajar</h3>
+          <a
+            href="https://youtu.be/cXQ30XJagh8?si=WwdK3HTFKnAXffN6"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-dark"
+          >
+            Buka Dokumen ↗
+          </a>
+          <h3 style="margin-top: 25px">03 · Analisis dan Refleksi</h3>
+          <a
+            href="assets/analisis_uts.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-dark"
+          >
+            Buka Dokumen ↗
+          </a>
+        </article>
+      </div>
+      <div class="subpage-actions">
+        <button class="btn btn-light" onclick="showPage('home')">
+          ← Kembali ke Beranda</button
+        ><button class="btn btn-light" onclick="showPage('uas')">
+          Lanjut ke UAS →
+        </button>
+      </div>
+    </section>
+
+    <!-- ======================= HALAMAN UAS TERPISAH ======================= -->
+    <section class="subpage" id="uasPage">
+      <div class="subpage-head">
+        <div class="breadcrumb">
+          <a
+            href="#"
+            onclick="
+              showPage('home');
+              return false;
+            "
+            >Beranda</a
+          >
+          / UAS
+        </div>
+        <h1>E-Portfolio UAS</h1>
+        <p>
+          Dokumentasi praktik mengajar mandiri Siklus 2–4. Pilih rancangan
+          pembelajaran yang paling representatif, lalu sertakan video
+          pelaksanaan, bukti belajar, analisis artefak, dan refleksi
+          perkembangan.
+        </p>
+      </div>
+      <div class="upload-grid">
+        <article class="upload-card">
+          <h3>01 · Rancangan Pembelajaran Siklus 2–4 Terpilih</h3>
+          <a
+            href="assets/siklus 4.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-dark"
+          >
+            Buka Dokumen ↗
+          </a>
+          <h3 style="margin-top: 25px">02 · Video Praktik Mengajar</h3>
+          <a
+            href="https://youtu.be/TQSLcYb5wSQ?si=zDJJ9yM-CJpGvNoR"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-dark"
+          >
+            Buka Dokumen ↗
+          </a>
+          <h3 style="margin-top: 25px">
+            03 · Analisis, Refleksi, dan Tindak Lanjut
+          </h3>
+          <a
+            href="assets/analisis_uas.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-dark"
+          >
+            Buka Dokumen ↗
+          </a>
+        </article>
+      </div>
+      <div class="subpage-actions">
+        <button class="btn btn-light" onclick="showPage('home')">
+          ← Kembali ke Beranda</button
+        ><button class="btn btn-light" onclick="showPage('uts')">
+          ← Kembali ke UTS
+        </button>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-inner">
+        <span
+          >© <span id="year"></span> Hafadzatun Adzmi, S.Pd. · E-Portfolio
+          PPG</span
+        >
+        <span
+          >Dirancang dengan hati, dikembangkan dengan refleksi.
+          <a class="back-top" href="#beranda" onclick="showPage('home')"
+            >Kembali ke atas ↑</a
+          ></span
+        >
+      </div>
+    </footer>
+
+    <script>
+      // ======================= NAVIGASI HALAMAN =======================
+      const homePage = document.getElementById("homePage");
+      const utsPage = document.getElementById("utsPage");
+      const uasPage = document.getElementById("uasPage");
+      const navLinks = document.getElementById("navLinks");
+      const menuToggle = document.getElementById("menuToggle");
+
+      function showPage(page) {
+        homePage.classList.toggle("hidden", page !== "home");
+        utsPage.classList.toggle("active", page === "uts");
+        uasPage.classList.toggle("active", page === "uas");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        document
+          .querySelectorAll(".nav-links a")
+          .forEach((a) => a.classList.remove("active"));
+        const target = [...document.querySelectorAll(".nav-links a")].find(
+          (a) =>
+            (page === "uts" && a.textContent.trim() === "UTS") ||
+            (page === "uas" && a.textContent.trim() === "UAS") ||
+            (page === "home" && a.getAttribute("href") === "#beranda"),
+        );
+        if (target) target.classList.add("active");
+      }
+
+      menuToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      // ======================= BANTUAN FILE DAN TAUTAN =======================
+      function previewFile(input, targetId) {
+        const target = document.getElementById(targetId);
+        if (input.files && input.files[0]) {
+          target.textContent =
+            "Dipilih: " +
+            input.files[0].name +
+            " (file hanya dipilih di perangkat ini; belum diunggah ke website).";
+        } else {
+          target.textContent = "Belum ada file dipilih.";
+        }
+      }
+
+      function openUrl(inputId) {
+        const value = document.getElementById(inputId).value.trim();
+        if (!value) {
+          alert("Silakan masukkan tautan dokumen atau video terlebih dahulu.");
+          return;
+        }
+        try {
+          const url = new URL(value);
+          if (url.protocol !== "https:" && url.protocol !== "http:")
+            throw new Error("URL tidak valid");
+          window.open(url.href, "_blank", "noopener,noreferrer");
+        } catch (error) {
+          alert(
+            "Tautan belum valid. Gunakan alamat lengkap yang diawali https:// atau http://",
+          );
+        }
+      }
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Jika file dibuka menggunakan URL dengan hash tertentu, arahkan ke halaman terkait.
+      if (window.location.hash === "#uts") showPage("uts");
+      if (window.location.hash === "#uas") showPage("uas");
+    </script>
+  </body>
+</html>
